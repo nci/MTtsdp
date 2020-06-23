@@ -13,7 +13,7 @@ Tutorials (`README.md files`) in Python3 are inside each folder that corresponds
 
 License
 =======
-Copyright 2016-2020 Australian National University
+Copyright 2017-2020 Australian National University
 
 Licensed under the Apache License, Version 2.0 (the "License"); you may not use this package except in compliance with the License. A copy of the License may be found in this source distribution in LICENSE-2.0.txt
 
