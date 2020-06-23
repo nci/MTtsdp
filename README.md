@@ -1,6 +1,6 @@
 MTtsdp
 ======
-The MagnetoTellurics time series data publication (**MTtsdp**) codes were developed as part of the Magnetotellurics (**MT**) component of the 2017-2020 Australian Research Data Commons (**ARDC**) funded Geoscience Data enhanced Virtual Laboratory (**GeoDeVL**) project. The Level 0 (**L0**) and Level 1 (**L1**) time series publication codes are based on Table 1 in:
+The **M**agneto**T**ellurics **t**ime **s**eries **d**ata **p**ublication (**MTtsdp**) codes were developed as part of the Magnetotellurics (**MT**) component of the 2017-2020 Australian Research Data Commons (**ARDC**) funded Geoscience Data enhanced Virtual Laboratory (**GeoDeVL**) project. The Level 0 (**L0**) and Level 1 (**L1**) time series publication codes are based on Table 1 in:
  
 Rees, N., Evans, B., Heinson, G., Conway, D., Yang, R., Thiel, S., Robertson, K., Druken, K., Goleby, B., Wang, J., Wyborn, L. and Seillé, H., 2019. The Geosciences DeVL Experiment: new information generated from old magnetotelluric data of The University of Adelaide on the NCI High Performance Computing Platform. ASEG Extended Abstracts, 2019(1), pp.1-6, https://doi.org/10.1080/22020586.2019.12073015
         
