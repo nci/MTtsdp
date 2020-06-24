@@ -1,105 +1,76 @@
-MT Data Processing (L1)
-=====
+Level 1 (L1) MT time series data processing
+===========================================
+We present the following Python3 codes which were used for generating the [AusLAMP Musgraves Level 1 MT time series products](http://dx.doi.org/10.25914/5eaa30de53244):
 
-# 1. Raw- and meta-data 
- is fold is for new ASCII data (time series) and meta data (attributes).
-     
-Virtual links inside `00_raw_ASCII_new/` are used here to access raw- and meta-data.
+  1. `01_check.py` 
+  2. `02_merge.py`
+  3. `03_ascii_2_bin.py`
+  4. `04_rotate.py`
+  5. `05_make_netCDF.py`
 
-1.1 
-``` 
+Note that these scripts were designed to work on outputs from **Earth Data Logger** instruments only.
+
+### Level 0 time series ASCII data and metadata
+Virtual links (`00_raw_ASCII_new/`) are used to access the Level 0 ASCII time series data and the associated metadata text files.
+ 
+```bash 
 00_raw_ASCII_new/SA_AusLAMP_MT_Survey_Musgraves_APY_2016_to_2018 -> /g/data/my80/proc_mus/States_and_Territories/SA/Long_period/SA_AusLAMP_MT_Survey_Musgraves_APY_2016_to_2018/?A/Level_0_Concatinated_Time_Series_ASCII/
 
-00_raw_ASCII_new/WA_and_SA_metadata -> /g/data/uc0/my80_dev/sheng_data/WA_and_SA_metadata//
+00_raw_ASCII_new/WA_and_SA_metadata -> /g/data/uc0/my80_dev/sheng_data/WA_and_SA_metadata/
 ```
 
-# 2. Processing Pipeline
+## L1 processing Pipeline
 
-## 2.1 Raw ASCII data to level0 ASCII data
-To merge raw data (time series and attributes), there are several steps to transfer them into level0 ASCII data.
+### Concatenate Level 0 daily ASCII time series files to ASCII time series files over the whole recording period 
+The daily Level 0 **Earth Data Logger (EDL)** ASCII time series files for each station were concatenated over the whole recording period. This step involved:
 
-+ 0) Check each fold and files for possible wrongness that includes wrong number of samples per day, missing of some files, etc.
++ Checking each folder and associated files for any potential issues including incorrect number of samples per day, missing files, evidence of instrument drift, etc.
    
-+ 1) At each station, merge daily recordings into a single recording for each component, and cut out
-     the data in the leading and the final day.
++ For each station, the daily concatinations were merged into a single file encompassing the whole recording interval (minus the first and final day) for each electromagnetic component (EX, EY, BX, BY, BZ). 
 
-+ 2) Rotate, downsampling. The rotation need a few parameters that are 
-     stored in `00*/WA_metadata` for each station. Those parameters are used
-     to rotate, scale, etc. The downsampling is to change from 10Hz to 1Hz. 
-     All these three operations are explained by a tutorial matlab script. 
++ Rotation and downsampling (from 10Hz to 1Hz) routines were performed based on information provided in the station metadata text files (e.g. `00*/WA_metadata`). A Matlab code was provided which described how to run the rotation and downsampling routines.  
 
-*NOTE1: some stations at WA are using different recorders and hence operations above do not apply to them. These four stations should be abandoned in the first place. Those four stations are declared in Nigel's jupyter notebooks.*
+### Generate NetCDF files
+For each station, there are individual files for the variables `.B*`, `.E*`, `.ambientTemperature` as well as an associated metadata text file. All variables and metadata are incorporated into a single NetCDF file. That is, one `NetCDF` file per station over the whole recording period.
 
-*NOTE2: a few stations at WA and SA have wrong recordings. They are recognized in the 0th step.*
-
-## 2.2 Generate netCDF files
-Specifically, at each station, there are individual files for channels of `.B?`, `.E?`, `.ambientTemperature`, and metadata parameters,
-here we need to include all those data into a single netCDF file. That is one `netcdf` file for one station.
-
-# 3. How to run
-Here are step by step run:
+### Example of how to run the MT_L1 codes at the NCI
+To run these codes, you will need to open up a terminal, for example, using NCI's Virtual Desktop Infrastructure. You will then need to load in the appropriate system modules - the key modules for these codes are [python3](https://www.python.org/), [openmpi](https://www.open-mpi.org/) and [mpi4py](https://mpi4py.readthedocs.io/en/stable/).
 
 ```bash
-###
-#  This is in the sh terminal, for example, a terminal in VDI at NCI.
-###
-
-###
-#  Load modules
-#
-#  The key modules is python3, openmpi and mpi4py. 
-#  Be careful for the verion.
-###
 module load pbs   setuptools/23.2.1-py3.5   openmpi/1.8.4
 module load python3/3.5.2     mpi4py/2.0.0-ompi-1.8.4-py3.5 
 module load gcc/5.2.0
 module load netcdf4-python/1.2.4-ncdf-4.3.3.1-py3.5
+```
+Work space folders will need to be created for each of the L1 time series processing steps:
 
-###
-#  Make working space
-###
-mkdir 01_workspace 02_workspace 03_workspace 04_workspace
+```bash
+mkdir 01_workspace 02_workspace 03_workspace 04_workspace 05_workspace
+```
+The following commands will generate an information file that will be used to check for any potential issues with the Level 0 ASCII time series files (e.g. incorrect number of samples per day, missing files, evidence of instrument drift):
 
-###
-#  Step 0 check
-#
-#  Check possible wrongness at each station
-###
-# generate information file that is used for check
+```bash
 wc -l /g/data/my80/proc_mus/States_and_Territories/SA/Long_period/SA_AusLAMP_MT_Survey_Musgraves_APY_2016_to_2018/WA/Level_0_Concatinated_Time_Series_ASCII/*/*/* | sed  '$d' > 01_workspace/WA.log
+
 wc -l /g/data/my80/proc_mus/States_and_Territories/SA/Long_period/SA_AusLAMP_MT_Survey_Musgraves_APY_2016_to_2018/SA/Level_0_Concatinated_Time_Series_ASCII/*/*/* | sed  '$d' > 01_workspace/SA.log
-# run the check script
-python3 ./01_check.py > 01_workspace/01.log 
-# !!! Now, check the output file 01_workspace/01.log to find out wrong stations.
-#     Please fix the wrong stations. Do not enter the following steps until there
-#     is not any problems reported by 01_workspace/01.log.
+```
+Now we can run the `01_check.py` script:
 
-###
-#  Step 1 merge
-#
-#  This merge many ASCII files into a single ASCII file at each station.
-#  A few stations are excluded after checking (done in step 0).
-#  Please edit the days that should be dropped, for example, 
-#    the first day and the last day. That can be done by editing
-#    the parameter at the head of `02_merge.py`.
-#    The default setting is to drop the first and the last day.
-#  mpi running is used. That can be mpirun in VDI, or through
-#    qTorch system in gadi. VDI comes with 8 cores, and it is 
-#    powerful enough to finish the running in a few minutes that can
-#    be less than the queue time in gadi.
-#  NOTE: double check the version of python3, openmpi, and mpi4py.
-###
+```bash
+python3 ./01_check.py > 01_workspace/01.log
+```
+Next, check the output file `01_workspace/01.log` to see if any stations have issues with incorrect number of samples or missing files. If there are any issues encountered, the identified stations will need to be rectified (or excluded) before proceeding.
+
+Now we can run `02_merge.py` which will merge the daily L0 ASCII files into a single ASCII file over the whole recording period for each station. As a default, the first and final days of recording are excluded when running `02_merge.py`. However, you can change what days are excluded by editing the `merge` function in `02_merge.py` (i.e. changing the values for `cut_head` and `cut_end` - only whole numbers are accepted). Let's now run `02_merge.py` using mpi: 
+
+```bash
 mpirun -np 8 python3 ./02_merge.py # check the merged data and log files in 02_workspace/
+```
+The next step is to run `03_ascii_2_bin.py`, which makes use of `ascii2bin.cc` to converte the merged ASCII files into intermediate binary files. This step is fundamental for accelerating the subsequent I/O operations. 
 
-###
-#  Step 2 Rotation and downsampling
-#  
-#  First, we transfer merged ASCII file into binary to accelerate 
-#    following IO operations. The output and logs are in 03_workspace/
-#  Second, we read from binary data to do rotation and downsample.
-#    The output and logs are in 04_workspace/
-###
-# ASCII to binary
+```bash
+### ASCII to binary
+
 cp ascii2bin.cc 03_workspace
 cd 03_workspace/ 
 g++ -O2 ascii2bin.cc -o ascii2bin  # compile and generate the c language program
@@ -108,24 +79,29 @@ wc -l 02_workspace/merged_data_WA/* | sed '$d' > ./03_workspace/WA.tmp
 wc -l 02_workspace/merged_data_SA/* | sed '$d' > ./03_workspace/SA.tmp
 cat 03_workspace/WA.tmp  | awk '{s = $2; gsub("02", "03", s); gsub("data","data_bin", s); printf("./03_workspace/ascii2bin %s %s %s.bin \n", $2, $1, s)}' > ./03_workspace/WA.cmd
 cat 03_workspace/SA.tmp  | awk '{s = $2; gsub("02", "03", s); gsub("data","data_bin", s); printf("./03_workspace/ascii2bin %s %s %s.bin \n", $2, $1, s)}' > ./03_workspace/SA.cmd
-# run
-mpirun -np 6 ./03_ascii_2_bin.py
-# check if all transformation are done and correct. Inside the log files,  there should be `None` and nothing else
-cat 03_workspace/*log  | awk '{print $NF}' | sort | uniq 
-# rotate
-mpirun -np 6 python3 ./04_rotate.py # the output are processed time series stored as binary files in 04_workspace.
-
-###
-#  Step 3 get netcdf
-#
-#  Output and logs are inside 05_workspace/ (one .nc file per station)
-#  NOTE: We include all the metadata attributes into netcdf. Those attributes correspond to raw time series.
-#        Some of those attributes are meaningless to the processed time series. That is discribed in netcdf files.
-###
-mpirun -np 6 python3 ./05_make_netCDF.py 
-
 ```
 
+To run 03_ascii_2_bin.py:
 
+```bash
+mpirun -np 6 ./03_ascii_2_bin.py
+```
+To check if all transformation were performed as expected, look inside the log files - there should be `None` and nothing else.
 
+```bash
+cat 03_workspace/*log  | awk '{print $NF}' | sort | uniq 
+```
 
+Following this, rotations and downsampling are performed on the binary data and the outputs and logs are stored in `04_workspace/`:
+
+To run 04_rotate.py:
+
+```bash
+mpirun -np 6 python3 ./04_rotate.py # the output are processed time series stored as binary files in 04_workspace.
+```
+
+The final step is to generate the L1 NetCDF files with the associated metadata. The outputs and logs will be stored inside 05_workspace/ (one .nc file per station): 
+
+```bash
+mpirun -np 6 python3 ./05_make_netCDF.py 
+```
