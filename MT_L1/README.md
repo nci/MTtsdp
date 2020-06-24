@@ -2,11 +2,11 @@ Level 1 (L1) MT time series data processing
 ===========================================
 We present the following Python3 codes which were used for generating the [AusLAMP Musgraves Level 1 MT time series products](http://dx.doi.org/10.25914/5eaa30de53244):
 
-  1. `01_check.py` 
-  2. `02_merge.py`
-  3. `03_ascii_2_bin.py`
-  4. `04_rotate.py`
-  5. `05_make_netCDF.py`
+   `01_check.py` 
+   `02_merge.py`
+   `03_ascii_2_bin.py`
+   `04_rotate.py`
+   `05_make_netCDF.py`
 
 Note that these scripts were designed to work on outputs from **Earth Data Logger** instruments only.
 
