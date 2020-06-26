@@ -1,5 +1,5 @@
-Level 1 (L1) MT time series data processing
-===========================================
+## Level 1 MT time series data publishing
+
 We present the following Python3 codes that were used to generate the [AusLAMP Musgraves Level 1 MT time series products](http://dx.doi.org/10.25914/5eaa30de53244):
 
    - `01_check.py` 
