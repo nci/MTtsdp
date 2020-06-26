@@ -1,4 +1,4 @@
-## Packed Raw Data and Level 0 MT time series data processing levels 
+## Packed Raw Data and Level 0 MT time series data publishing levels 
 
 We present the following Python3 codes that were used to generate the AusLAMP Musgraves [packed raw time series data](http://dx.doi.org/10.25914/5eaa30d121c3e), [Level 0 concatenated ASCII time series](http://dx.doi.org/10.25914/5eaa30d63bd17) and [Level 0 concatenated NetCDF time series](http://dx.doi.org/10.25914/5eaa30da28069):
 
