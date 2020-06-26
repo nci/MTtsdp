@@ -1,16 +1,16 @@
 ## Packed Raw Data and Level 0 MT time series data processing levels 
 
-We present the following Python3 codes:
+We present the following Python3 codes that were used to generate the AusLAMP Musgraves [packed raw time series data](http://dx.doi.org/10.25914/5eaa30d121c3e), [Level 0 concatenated ASCII time series](http://dx.doi.org/10.25914/5eaa30d63bd17) and [Level 0 concatenated NetCDF time series](http://dx.doi.org/10.25914/5eaa30da28069):
 
-   1. **01_pack.py** - Produces a zip file of the raw instrument data for each site in the survey (e.g. station1.zip, station2.zip, ...).
+   1. `01_pack.py` - Produces a zip file of the raw instrument data for each site in the survey (e.g. station1.zip, station2.zip, ...).
      
-   2. **02_time_series.py** - Generates Level 0 concatenated EX, EY, BX, BY, BZ ASCII files at a per station per day granularity. These ASCII files have associated metadata available. 
+   2. `02_time_series.py` - Generates Level 0 concatenated EX, EY, BX, BY, BZ ASCII files at a per station per day granularity. These ASCII files do not have any associated metadata available. 
    
-   3. **03_netcdf.py** - Creates a single Level 0 concatenated netCDF file per station per day for variables EX, EY, BX, BY, BZ. The MT time series metadata is also available in the netCDF file.
+   3. `03_netcdf.py` - Creates a single Level 0 concatenated NetCDF file per station per day for variables EX, EY, BX, BY, BZ. The MT time series metadata is also available in the NetCDF file.
 
-## Raw data and metadata 
+### Raw data and metadata 
      
-Virtual links are used here for accessing the __Earth Data Logger__ raw MT time series data and associated metadata.
+Virtual links are used here for accessing the __Earth Data Logger__ raw MT time series data and associated metadata:
  
 ```
 00_data_virtual_link/01_data_location -> /g/data/my80/proc_mus/Musgraves/
@@ -24,7 +24,7 @@ Virtual links are used here for accessing the __Earth Data Logger__ raw MT time 
 00_data_virtual_link/03_metadata_dir -> /g/data/uc0/nre900/MT/MT_jupyter_notebook/WA_and_SA/
 ```
 
-## Example of how to run the MT_L0 codes at the NCI
+### Example of how to run the MT_L0 codes at the NCI
 
 To run these codes, you will need to open up a terminal, for example, using NCI's Virtual Desktop Infrastructure (VDI). You will then need to load in the appropriate system modules - the key modules for these codes are [python3](https://www.python.org/), [openmpi](https://www.open-mpi.org/) and [mpi4py](https://mpi4py.readthedocs.io/en/stable/).  
 
@@ -40,7 +40,7 @@ Next you will need to create a work space folder for each of the three time seri
 ```bash
 mkdir 01_workspace 02_workspace 03_workspace
 ```
-###  Running the codes in parallel
+###  Running the codes in parallel with mpi
 
 For this example we use 7 cores, but more cores could be requested for further acceleration.
 
