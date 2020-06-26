@@ -8,6 +8,8 @@ We present the following Python3 codes that were used to generate the AusLAMP Mu
    
    3. `03_netcdf.py` - Creates a single Level 0 concatenated NetCDF file per station per day for variables EX, EY, BX, BY, BZ. The MT time series metadata is also available in the NetCDF file.
 
+Note that these scripts were designed to work on outputs from **Earth Data Logger** instruments only.
+
 ### Raw data and metadata 
      
 Virtual links are used here for accessing the __Earth Data Logger__ raw MT time series data and associated metadata:
