@@ -83,7 +83,7 @@ cat 03_workspace/WA.tmp  | awk '{s = $2; gsub("02", "03", s); gsub("data","data_
 cat 03_workspace/SA.tmp  | awk '{s = $2; gsub("02", "03", s); gsub("data","data_bin", s); printf("./03_workspace/ascii2bin %s %s %s.bin \n", $2, $1, s)}' > ./03_workspace/SA.cmd
 ```
 
-To run 03_ascii_2_bin.py:
+To run `03_ascii_2_bin.py`:
 
 ```bash
 mpirun -np 6 ./03_ascii_2_bin.py
@@ -97,7 +97,7 @@ cat 03_workspace/*log  | awk '{print $NF}' | sort | uniq
 
 Following this, rotations and downsampling are performed on the binary data and the outputs and logs are stored in `04_workspace/`.
 
-To run 04_rotate.py:
+To run `04_rotate.py`:
 
 ```bash
 mpirun -np 6 python3 ./04_rotate.py # the output are processed time series stored as binary files in 04_workspace.
