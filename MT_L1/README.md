@@ -31,7 +31,7 @@ The daily Level 0 **Earth Data Logger (EDL)** ASCII time series files for each s
 
 + Rotation and downsampling (from 10Hz to 1Hz) routines were performed on these binary files based on information provided in the station metadata text files (e.g. `00*/WA_metadata`). A Matlab code was provided which described how to run the rotation and downsampling routines.  
 
-+ The final step involves generating NetCDF files. For each station, the rotated and downsampled variables (`.B*`, `.E*`, `.ambientTemperature`) as well as the associated metadata are added into a single NetCDF file. That is, one `NetCDF` file per station over the whole recording period.
++ The final step involves generating NetCDF files. For each station, the rotated and downsampled variables (`.B*`, `.E*`, `.ambientTemperature`) as well as the associated metadata are added into a single NetCDF file. That is, one NetCDF file per station over the whole recording period.
 
 
 ### Example of how to run the MT_L1 codes at the NCI
