@@ -1,0 +1,48 @@
+mth5_onefileperstation_mt_metadata_v0.2.2_level0.py 
+
+This code generates one mth5 file per survey station with associated mt_metadata_v0.2.2. 
+
+########################################
+run on: Gadi
+number of stations: 93
+number of runs: 101
+NCPUs used: 96
+memory used: 731 GB
+walltime used: 238 seconds (3m58s)
+CPU time used: 20838 seconds (5h47m18s)
+service units: 19.04
+########################################
+
+
+mth5_onefileperstation_mt_metadata_v0.2.2_level1.py
+
+This code takes the mth5/mt_metadata outputs of mth5_onefileperstation_mt_metadata_v0.2.2_level0.py and runs a rotation/conversion_to_appropriate_units/downsampling routine to generate Level 1 MT time series products in the mth5/mt_metadata_v0.2.2 format. 
+
+########################################
+run on: Gadi
+number of stations: 93
+number of runs: 101
+NCPUs used: 96
+memory used: 123.9 GB
+walltime used: 73 seconds (1m13s)
+CPU time used: 2968 seconds (49m28s)
+service units: 3.89
+########################################
+
+
+birrp_multiple_stations_multiple_runs_mt_metadata_v0.2.2.py
+
+This code automates the processing of MTH5/mt_metadata files using the Bounded Influence Remote Reference Processing (BIRRP) code (see https://www.whoi.edu/science/AOPE/people/achave/Site/Next1.html) to generate Level 2 EDI files.
+
+
+########################################
+run on: Gadi
+number of stations: 84
+number of runs: 84
+NCPUs used: 96
+memory used: 194.18 GB
+walltime used: 127 seconds (2m07s)
+CPU time used: 9050 seconds (2h30m50s)
+service units: 6.77
+########################################
+
