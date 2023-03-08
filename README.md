@@ -19,6 +19,11 @@ The **M**agneto**T**ellurics **t**ime **s**eries **d**ata **p**ublication v1 (**
 
 The MTtsdp_v1 codes were used to automate the generation of Level 0 and Level 1 MT timeseries products in the MTH5/mt_metadata format (see https://doi.org/10.1016/j.cageo.2022.105102). Additionally, codes were developed to run processing on the Musgraves time series MTH5 dataset on the NCI Gadi supercomputer. 
 
+Suggested Citation:
+===================
+If you use this software, please cite it as:
+
+Rees, N., Wang, S., Conway, D., Yang, R., Goleby, B., Wyborn, L. & Evans, B. 2023. MTtsdp v1.0.0. Zenodo. https://doi.org/10.5281/zenodo.7707364
 
 License
 =======
