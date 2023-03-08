@@ -15,7 +15,7 @@ Tutorials (`README.md files`) in Python3 are inside each folder that corresponds
 MTtsdp_v1
 =========
 
-The **M**agneto**T**ellurics **t**ime **s**eries **d**ata **p**ublication v1 (**MTtsdp_v0**) codes were developed as part of the 2021-2023 Australian Research Data Commons (**ARDC**), AuScope, NCI, TERN funded 2030 Geophysics Collections project: https://doi.org/10.47486/XN002.
+The **M**agneto**T**ellurics **t**ime **s**eries **d**ata **p**ublication v1 (**MTtsdp_v1**) codes were developed as part of the 2021-2023 Australian Research Data Commons (**ARDC**), AuScope, NCI, TERN funded 2030 Geophysics Collections project: https://doi.org/10.47486/XN002.
 
 The MTtsdp_v1 codes were used to automate the generation of Level 0 and Level 1 MT timeseries products in the MTH5/mt_metadata format (see https://doi.org/10.1016/j.cageo.2022.105102). Additionally, codes were developed to run processing on the Musgraves time series MTH5 dataset on the NCI Gadi supercomputer. 
 
