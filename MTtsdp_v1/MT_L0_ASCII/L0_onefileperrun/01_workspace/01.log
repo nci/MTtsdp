@@ -1,0 +1,20 @@
+# Input data from 01_workspace/Maralinga.log ...
+# Checking matchness between different components for number of days...
+# Checking wrong day names...
+# Checking gap of days...
+# Checking number of samples per day
+	Warning: please the number of samples 85560 /SA057_2/317/SA67_151113000000.ambientTemperature
+	Warning: please the number of samples 79200 /SA057_2/318/SA57_151114020000.ambientTemperature
+	Warning: please the number of samples 855600 /SA057_2/317/SA67_151113000000.BX
+	Warning: please the number of samples 792000 /SA057_2/318/SA57_151114020000.BX
+	Warning: please the number of samples 855600 /SA057_2/317/SA67_151113000000.BY
+	Warning: please the number of samples 792000 /SA057_2/318/SA57_151114020000.BY
+	Warning: please the number of samples 855600 /SA057_2/317/SA67_151113000000.BZ
+	Warning: please the number of samples 792000 /SA057_2/318/SA57_151114020000.BZ
+	Warning: please the number of samples 855600 /SA057_2/317/SA67_151113000000.EX
+	Warning: please the number of samples 792000 /SA057_2/318/SA57_151114020000.EX
+	Warning: please the number of samples 855600 /SA057_2/317/SA67_151113000000.EY
+	Warning: please the number of samples 792000 /SA057_2/318/SA57_151114020000.EY
+
+
+#PLEASE check stations: SA057_2
