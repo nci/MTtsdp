@@ -33,11 +33,11 @@ full_path_to_mt_metadata = sorted(glob.glob(mt_metadata_dir+"/*"))
 
 ### define raw time series data channels
 
-raw_data_channels = ['EX','EY','BX','BY','BZ','TP','ambientTemperature']
+raw_data_channels = ['EX','EY','BX','BY','BZ','ambientTemperature']
 
 ### define stations to go into mth5 file
 
-stations_all = ['SA026E', 'SA026W_2',  'SA029M',  'SA070', 'SA184'] # SA057_2 has multiple runs
+stations_all = ['SA026E', 'SA026W_2',  'SA029M',  'SA070', 'SA184', 'SA057_2'] ### SA057_2 has multiple runs
 
                                       
 ### define survey name and run number for stations with a single run

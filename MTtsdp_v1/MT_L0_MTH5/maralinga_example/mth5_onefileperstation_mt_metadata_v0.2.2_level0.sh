@@ -5,7 +5,7 @@
 #PBS -P abc
 #PBS -l walltime=0:05:00
 #PBS -l ncpus=6
-#PBS -l mem=24GB
+#PBS -l mem=96GB
 #PBS -l jobfs=1GB
 #PBS -l storage=scratch/abc+gdata/up99
 
