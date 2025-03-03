@@ -27,7 +27,7 @@ Rees, N., Wang, S., Conway, D., Yang, R., Goleby, B., Wyborn, L. & Evans, B. 202
 
 License
 =======
-Copyright 2017-2023 Australian National University
+Copyright 2017-2025 Australian National University
 
 Licensed under the Apache License, Version 2.0 (the "License"); you may not use this package except in compliance with the License. A copy of the License may be found in this source distribution in LICENSE-2.0.txt
 
