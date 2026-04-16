@@ -21,13 +21,22 @@ The MTtsdp_v1 codes were used to automate the generation of Level 0 and Level 1 
 
 Suggested Citation:
 ===================
-If you use this software, please cite it as:
+If you use the MTtsdp_v1 software, please cite it as:
 
 Rees, N., Wang, S., Conway, D., Yang, R., Goleby, B., Wyborn, L. & Evans, B. 2023. MTtsdp v1.0.0. Zenodo. https://doi.org/10.5281/zenodo.7707364
 
+
+MTtsdp_v2
+=========
+
+The **M**agneto**T**ellurics **t**ime **s**eries **d**ata **p**ublication v2 (**MTtsdp_v1**) codes were developed as part of the Modernising Earth Science Data for High Performance Computing AuScope Opportunity Fund: https://www.auscope.org.au/posts/we-will-rock-you-our-2024-opportunity-fund-winners 
+
+
+
+
 License
 =======
-Copyright 2017-2025 Australian National University
+Copyright 2017-2026 Australian National University
 
 Licensed under the Apache License, Version 2.0 (the "License"); you may not use this package except in compliance with the License. A copy of the License may be found in this source distribution in LICENSE-2.0.txt
 
