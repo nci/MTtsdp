@@ -29,7 +29,7 @@ Rees, N., Wang, S., Conway, D., Yang, R., Goleby, B., Wyborn, L. & Evans, B. 202
 MTtsdp_v2
 =========
 
-The **M**agneto**T**ellurics **t**ime **s**eries **d**ata **p**ublication v2 (**MTtsdp_v1**) codes were developed as part of the Modernising Earth Science Data for High Performance Computing AuScope Opportunity Fund: https://www.auscope.org.au/posts/we-will-rock-you-our-2024-opportunity-fund-winners 
+The **M**agneto**T**ellurics **t**ime **s**eries **d**ata **p**ublication v2 (**MTtsdp_v2**) codes were developed as part of the Modernising Earth Science Data for High Performance Computing AuScope Opportunity Fund: https://www.auscope.org.au/posts/we-will-rock-you-our-2024-opportunity-fund-winners 
 
 
 
