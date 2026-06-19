@@ -11,7 +11,6 @@ http://dx.doi.org/10.25914/5eaa30cc934d0
 
 Tutorials (`README.md files`) in Python3 are inside each folder that corresponds to a stand-alone MT time series processing level.
 
-
 MTtsdp_v1
 =========
 
@@ -19,20 +18,18 @@ The **M**agneto**T**ellurics **t**ime **s**eries **d**ata **p**ublication v1 (**
 
 The MTtsdp_v1 codes were used to automate the generation of Level 0 and Level 1 MT timeseries products in the MTH5/mt_metadata format (see https://doi.org/10.1016/j.cageo.2022.105102). Additionally, codes were developed to run processing on the Musgraves time series MTH5 dataset on the NCI Gadi supercomputer. 
 
-Suggested Citation:
-===================
-If you use the MTtsdp_v1 software, please cite it as:
-
-Rees, N., Wang, S., Conway, D., Yang, R., Goleby, B., Wyborn, L. & Evans, B. 2023. MTtsdp v1.0.0. Zenodo. https://doi.org/10.5281/zenodo.7707364
-
-
 MTtsdp_v2
 =========
 
-The **M**agneto**T**ellurics **t**ime **s**eries **d**ata **p**ublication v2 (**MTtsdp_v2**) codes were developed as part of the Modernising Earth Science Data for High Performance Computing AuScope Opportunity Fund: https://www.auscope.org.au/posts/we-will-rock-you-our-2024-opportunity-fund-winners 
+The **M**agneto**T**ellurics **t**ime **s**eries **d**ata **p**ublication v2 (**MTtsdp_v2**) codes were developed as part of the Modernising Earth Science Data for High Performance Computing AuScope Opportunity Fund: https://www.auscope.org.au/projects/modernising-earth-science-data-for-hpc 
 
+These scripts were used to generate Level 0 and Level 1 AusLAMP South Australia time series data products on the NCI Gadi supercomputer.
 
+Suggested Citation:
+===================
+If you use or adapt the MTtsdp example scripts in your work, please cite them as:
 
+Rees, N., Wang, S., Conway, D., Yang, R., Hollmann, H., Goleby, B., Wyborn, L., & Evans, B. (2026). nci/MTtsdp: MTtsdp v2.0.0. Zenodo. https://doi.org/10.5281/zenodo.20754948
 
 License
 =======
